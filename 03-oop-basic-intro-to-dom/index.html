@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="./1-column-chart/src/style.css" />
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script>
+  class Component {
+    constructor(data = []) {
+      this.data = data;
+
+      this.render();
+    }
+
+    getTemplate () {
+      // loop
+      return `
+        <div class="column-chart dashboard__chart_customers">
+    <div>
+      <div class="column-chart__title">
+        Total customers
+
+      </div>
+      <div class="column-chart__container">
+        <div data-element="header" class="column-chart__header" style="--chart-height: 50">321</div>
+        <div data-element="body" class="column-chart__chart">
+          <div style="--value: 50" data-tooltip="100%"></div>
+          <div style="--value: 45" data-tooltip="90%"></div>
+          <div style="--value: 40" data-tooltip="80%"></div>
+          <div style="--value: 17" data-tooltip="35%"></div>
+          <div style="--value: 45" data-tooltip="90%"></div>
+          <div style="--value: 12" data-tooltip="25%"></div>
+          <div style="--value: 22" data-tooltip="45%"></div>
+          <div style="--value: 32" data-tooltip="65%"></div>
+          <div style="--value: 35" data-tooltip="70%"></div>
+          <div style="--value: 12" data-tooltip="25%"></div>
+          <div style="--value: 7" data-tooltip="15%"></div>
+          <div style="--value: 2" data-tooltip="5%"></div>
+          <div style="--value: 5" data-tooltip="10%"></div>
+          <div style="--value: 12" data-tooltip="25%"></div>
+          <div style="--value: 25" data-tooltip="50%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+      `;
+    }
+
+    render () {
+      const wrapper = document.createElement('div');
+
+      wrapper.innerHTML = this.getTemplate();
+
+      this.element = wrapper.firstElementChild;
+    }
+  }
+
+  const obj = new Component([10, 40, 50, 100, 120]);
+
+  const rootElement = document.querySelector('#root');
+
+  rootElement.append(obj.element);
+</script>

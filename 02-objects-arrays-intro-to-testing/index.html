@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<script>
+
+  function createCounter () {
+    let count = 0;
+
+    return function () {
+      return count++;
+    }
+  }
+
+  const counter = createCounter();
+
+  createCounter = null;
+
+  console.error(counter());
+  console.error(counter());
+  console.error(counter());
+  console.error(counter());
+
+  console.error(counter());
+  console.error(counter());
+  console.error(counter());
+  console.error(counter());
+  console.error(counter());
+
+</script>
