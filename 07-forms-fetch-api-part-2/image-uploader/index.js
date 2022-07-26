@@ -1,6 +1,8 @@
 const IMGUR_CLIENT_ID = '28aaa2e823b03b1';
 
 // throws FetchError if upload failed
+// NOTE: check https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker
+
 export default class ImageUploader {
   async upload(file) {
     const formData = new FormData();
